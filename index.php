@@ -79,7 +79,48 @@
     <?php 
         include 'footer.php';
     ?>
+    <script>
+        async function showProducts(TRADER_ID) {
+            try {
+                // Fetch products from the server based on the selected traderType and shopId
+                const products = await fetchProductsFromServer(TRADER_ID);
 
+                // Display the products in the designated area
+                displayProducts(products);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+
+        async function fetchProductsFromServer(TRADER_ID) {
+            // Make an AJAX request to the server.php script
+            const url = `server.php?SHOP_ID=${TRADER_ID}`;
+            const response = await fetch(url);
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch products');
+            }
+
+            // Parse the response JSON and return the products
+            const products = await response.json();
+            return products;
+        }
+
+        function displayProducts(products) {
+            // Display the products in the designated area
+            const productsDisplay = document.getElementById('productsDisplay');
+            productsDisplay.innerHTML = '<h3>Products</h3>' + '<ul><li>' + products.join('</li><li>') + '</li></ul>';
+        }
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", mobileMenu);
+
+        function mobileMenu() {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        }
+    </script>
     </body>
     </html>
     
