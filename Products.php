@@ -1,4 +1,85 @@
+<?php
 
+include 'connection.php';
+include 'navigation.php';
+
+// Retrieve trader ID from the URL
+$traderId = isset($_GET['traderId']) ? $_GET['traderId'] : null;
+
+// Initialize the trader's username variable
+$traderUsername = '';
+
+// Set up the query based on the presence of trader ID
+if ($traderId) {
+    $traderQuery = "SELECT USERNAME FROM t_trader WHERE TRADER_ID = '$traderId'";
+    $traderResult = mysqli_query($connection, $traderQuery);
+
+    // Check if the trader exists
+    if ($traderResult && mysqli_num_rows($traderResult) > 0) {
+        $traderData = mysqli_fetch_assoc($traderResult);
+        $traderUsername = $traderData['USERNAME'];
+    }
+
+    $selprod = "SELECT * FROM P_PRODUCT WHERE TRADER_ID = '$traderId'";
+    $pageTitle = "Products from  " . $traderUsername;
+}else {
+    $selprod = "SELECT * FROM P_PRODUCT";
+    $pageTitle = "All Products";
+}
+
+
+$sqlsel = mysqli_query($connection, $selprod);
+
+// Initialize variables to store active filters
+$activeCategory = '';
+$activeSort = '';
+
+
+//catagory filter
+
+if (isset($_POST['submit'])) {
+    $CATAGORYTYPE = $_POST['vnf'];
+
+    $catProd = "SELECT * FROM P_PRODUCT WHERE CATAGORYTYPE= '$CATAGORYTYPE'";
+    $catsql = mysqli_query($connection, $catProd);
+    $sqlsel = $catsql;
+
+     // Set active category filter
+    $activeCategory = $CATAGORYTYPE;
+}
+if (isset($_POST['Price'])) {
+    $CATAGORYTYPE = $_POST['vnf'];
+    $procProd = "SELECT * FROM P_PRODUCT WHERE CATAGORYTYPE= '$CATAGORYTYPE' ORDER BY PRICE ASC";
+    $catPrice = mysqli_query($connection, $procProd);
+    $sqlsel = $catPrice;
+
+    // Set active sort filter
+    $activeSort = 'Price';
+}
+
+if (isset($_POST['Rating'])) {
+    $revProd = "SELECT DISTINCT P_PRODUCT.*, average
+    FROM P_PRODUCT, R_REVIEW, (
+        SELECT P_PRODUCT.PRODUCT_ID PRODUCT_ID, avg(R_REVIEW.REVIEWRATING) average
+        FROM P_PRODUCT, R_REVIEW
+        WHERE P_PRODUCT.PRODUCT_ID = R_REVIEW.PRODUCT_ID
+        GROUP BY P_PRODUCT.PRODUCT_ID 
+    ) X
+    WHERE X.PRODUCT_ID = P_PRODUCT.PRODUCT_ID 
+    ORDER BY average asc
+    ";
+    $catReview = mysqli_query($connection, $revProd);
+    $sqlsel = $catReview;
+
+     // Set active sort filter
+    $activeSort = 'Rating';
+}
+
+
+
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
