@@ -122,7 +122,30 @@
         }
         
     ?>
-    
+    <div class="signup">
+                <h3>Log In</h3>
+                <form action="" method="POST">
+                    <input type="text" name="username" id="username" placeholder="Username">
+                    <br>
+                    <?php 
+        if(isset($userErr)){
+        echo "<p> $userErr </p>" ;}
+    ?>
+                    <br><br>
+                    <input type="password" name="password" id="username" placeholder="Password">
+                    <br>
+                    <?php 
+        if(isset($passErr)){
+        echo "<p> $passErr </p>" ;}
+    ?>
+                    <br><br>
+          <input type="submit" name="login" value="Login" placeholder="Login" id="signup">
+                </form>
+                <h3>Create an account?<a href="Registration.php">Register</a></h3>
+            </div>
+            
+        </div>
+    </div>
     <?php
         include 'footer.php';
     ?>
