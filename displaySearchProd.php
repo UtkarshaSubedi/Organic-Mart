@@ -44,7 +44,65 @@
             <input style="width: 10%;" type="submit" id="submit" name="Search Keyword">
         </form>
         
-          
+        <div class="prod">
+            <?php
+                if (mysqli_num_rows($sqlsel) > 0) {
+                while( $row = mysqli_fetch_assoc($sqlsel)){
+                    ?>
+                        <div class="product">
+                        
+                            <img src="Images/<?php echo $row['PRODUCTIMAGE']?>" alt="Product-Image" width="100%" height="367px">
+                            <div class="namePrice">
+                                <h3> <?php echo $row['PRODUCTNAME'] ?> </h3>
+                                <h3>$<?php echo $row['PRICE'] ?></h3>
+                            </div>
+                            <p><?php echo $row['DESCRIPTIONS'] ?></p>
+                            <div class="viewAddBtn">
+                                <button class="AC"><a style="color: black; text-decoration:none" href="addtocart.php?PRODUCT_ID=<?php echo $row['PRODUCT_ID']; ?>">Add To Cart</a></button>
+                                <button class="vP"><a style="color: black; text-decoration:none" href="ProductDetails.php?PRODUCT_ID=<?php echo $row['PRODUCT_ID']; ?>">View Product</a></button>
+                            </div>
+                        
+                            
+                            
+                        </div>
+                        
+                        <?php 
+                    }
+                } else{
+                    echo '<p> No products found. <br>
+                    Please search other products using correct names.</p>';
+                }  
+            ?><div class="prod">
+            <?php
+                if (mysqli_num_rows($sqlsel) > 0) {
+                while( $row = mysqli_fetch_assoc($sqlsel)){
+                    ?>
+                        <div class="product">
+                        
+                            <img src="Images/<?php echo $row['PRODUCTIMAGE']?>" alt="Product-Image" width="100%" height="367px">
+                            <div class="namePrice">
+                                <h3> <?php echo $row['PRODUCTNAME'] ?> </h3>
+                                <h3>$<?php echo $row['PRICE'] ?></h3>
+                            </div>
+                            <p><?php echo $row['DESCRIPTIONS'] ?></p>
+                            <div class="viewAddBtn">
+                                <button class="AC"><a style="color: black; text-decoration:none" href="addtocart.php?PRODUCT_ID=<?php echo $row['PRODUCT_ID']; ?>">Add To Cart</a></button>
+                                <button class="vP"><a style="color: black; text-decoration:none" href="ProductDetails.php?PRODUCT_ID=<?php echo $row['PRODUCT_ID']; ?>">View Product</a></button>
+                            </div>
+                        
+                            
+                            
+                        </div>
+                        
+                        <?php 
+                    }
+                } else{
+                    echo '<p> No products found. <br>
+                    Please search other products using correct names.</p>';
+                }  
+            ?>
+        </div> 
+        </div>   
     </div>
  </div>
 <?php include 'footer.php' ?>
