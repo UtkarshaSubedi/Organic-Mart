@@ -1,4 +1,13 @@
-s
+<?php
+  session_start();
+  include 'connection.php';
+  
+  $sel = "SELECT * FROM T_TRADER WHERE USERNAME = '{$_SESSION['trader']}'";
+            $sql = mysqli_query($connection, $sel);
+
+  $selprod = "SELECT P_PRODUCT.* FROM P_PRODUCT, T_TRADER WHERE T_TRADER.USERNAME= '{$_SESSION['trader']}'  AND P_PRODUCT.TRADER_ID = T_TRADER.TRADER_ID";
+  $sqlsel = mysqli_query($connection, $selprod);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
