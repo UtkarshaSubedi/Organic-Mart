@@ -29,4 +29,32 @@
         }
     }
 
+    if(isset($_GET['email']) && isset($_GET['v_code'])) {
+        $querryTrader = "SELECT * FROM T_TRADER WHERE email='$_GET[email]' AND vkey='$_GET[v_code]'";
+        $resultTrader = mysqli_query($connection, $querryTrader);
+        $rowTrader = mysqli_fetch_array($resultTrader);
+        if($resultTrader) {
+
+            if(mysqli_num_rows($resultTrader) ==1) {
+                $email_fetch = $rowTrader['EMAIL'];
+                if($rowTrader['VERIFIED']== 0) {   
+                    $updateTrader = "UPDATE T_TRADER SET verified = 1 WHERE email= '$email_fetch'";
+                    $feTrader=mysqli_query($connection, $updateTrader);
+                    if($feTrader) {
+                        echo '<script>alert("You are now verified as a trader.Enjoy trading in Organic Mart")</script>';
+                    }
+                    else {
+                        echo '<script>alert("Cannot run querry!")</script>';
+                    }
+                }
+                else{
+                    echo '<script>alert("Trader already registered")</script>';
+                    
+
+                }
+            }
+            
+        }
+    }
+
 ?>
