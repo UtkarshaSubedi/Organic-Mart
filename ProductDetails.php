@@ -79,7 +79,33 @@ $revfetch = mysqli_fetch_assoc($revavg);
 
 
 
-        
+        <div class="reviews">
+            <h4>Reviews</h4>
+            <form action="addReview.php" method="post">
+                <textarea rows="4" cols="50" name="comment" id="username" placeholder="Add a review"></textarea>
+                <div class="ratings">
+                    
+                    <input type="radio" name="star" id="star6" value="5"><label for="star6"></label>
+                    <input type="radio" name="star" id="star7" value="4"><label for="star7"></label>
+                    <input type="radio" name="star" id="star8" value="3"><label for="star8"></label>
+                    <input type="radio" name="star" id="star9" value="2"><label for="star9"></label>
+                    <input type="radio" name="star" id="star10" value="1"><label for="star10"></label>
+                </div>
+                <input type="hidden" name="PRODUCT_ID" value="<?php echo $_GET['PRODUCT_ID'] ?>">
+                <input type="submit" name="addreview" value="Add a review" id="review">
+
+            </form>
+            <div class="usrdate" style="display: flex; justify-content:space-between;">
+                <?php while ($fetchuserId = mysqli_fetch_assoc($userparse)) { ?>
+                    <h4><?php echo $fetchuserId['USERNAME']; ?></h4>
+                    <p><?php echo str_repeat('<span style="color: gold;">★</span>', $fetchuserId['REVIEWRATING']); ?></p>
+                    <p style="color:grey"><?php echo $fetchuserId['REVIEWDATE'] ?></p>
+            </div>
+
+            <p><?php echo $fetchuserId['REVIEWDESCRIPTION'] ?></p>
+        <?php }; ?>
+        </div>
+
     </div>
 
     <?php include 'footer.php' ?>
