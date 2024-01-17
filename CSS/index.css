@@ -1,0 +1,332 @@
+body {
+    box-sizing: border-box;
+    margin: auto auto;
+    font-family: 'Mulish', sans-serif;
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto auto;
+    
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #2A9D74;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item {
+    margin-left: 5rem;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: white;
+}
+
+.nav-link:hover {
+    color: #482ff7;
+}
+
+.nav-logo {
+    font-size: 2.1rem;
+    font-weight: 500;
+    color: #482ff7;
+}
+
+.centered {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    margin: auto auto;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.centered h1 {
+    text-align: center;
+}
+
+.searchField {
+    display: flex;
+}
+
+#search {
+    padding: 10px;
+    width: 100%;
+    margin: auto auto;
+}
+
+#submit {
+    padding: 10px;
+    border: none;
+    background-color: #2A9D74;
+    color: white;
+    width: 30%;
+}
+
+.header img {
+    width: 100%;
+}
+
+#viewProd {
+    padding: 10px;
+    border: none;
+    background-color: #FDD261;
+}
+
+#viewProd a {
+    text-decoration: none;
+    color: black;
+}
+
+.header #viewProd {
+    position: relative;
+    left: 35%
+}
+
+.traders {
+    margin-top: 200px;
+}
+
+.traders h2 {
+    text-align: center;
+    font-size: 2.5em;
+    padding: 10px;
+    
+}
+
+.traderImg img {
+    padding: 10px;
+}
+
+.traderImg {
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+} 
+
+.products {
+    margin-top: 200px;
+}
+
+.products #pN {
+    font-size: 2.5em;
+    padding: 10px;
+    text-align: center;
+}
+
+.namePrice {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.prod .product {
+    width: 29%;
+    margin: 15px;
+}
+
+.product p {
+    width: 95%;
+}
+
+.prod {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.viewAddBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.viewAddBtn button {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.viewAddBtn .vP {
+    border: 3px solid #2A9D74;
+    background-color: white;
+}
+
+.viewAddBtn .AC {
+    border: none;
+    background-color: #FDD261;
+}
+
+@media screen and (max-width: 800px) {
+    .centered {
+        top: 50%;
+        left: 50%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -120%;
+        top: 5rem;
+        flex-direction: column;
+        background-color: #2A9D74;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .nav-item {
+        margin: 2.5rem 0;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media screen and (max-width: 611px) {
+    .prod {
+        width: 100%;
+    }
+    .prod .product {
+        width: 100%;
+        max-width: 100%;
+    }
+    .centered h1 {
+        font-size: 22px;
+    }
+    .centered {
+        top: 30%;
+        left: 50%;
+    }
+    #search {
+        width: 100%;
+        margin: auto auto;
+    }
+    #submit {
+        border: none;
+        background-color: #2A9D74;
+        color: white;
+        width: 100%;
+    }
+}
+
+footer {
+    margin-top: 200px;
+    background-color: #2A9D74;
+}
+
+.footerItems {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.logoTerms img {
+    margin-bottom: 50px;
+}
+
+.logoTerms ul li {
+    text-decoration: none;
+    list-style: none;
+    margin: 15px;
+}
+
+.logoTerms ul li a {
+    color: white;
+    padding: 10px;
+}
+
+.list h3 {
+    font-size: 1.5em;
+    margin-bottom: 50px;
+}
+
+.list ul li {
+    margin: 15px;
+}
+
+.list ul li a {
+    color: white;
+}
+
+.list .socialInfo {
+    margin-top: 40px;
+}
+
+.list .socialInfo img {
+    margin: 10px;
+}
+
+.subscribe h3 {
+    font-size: 1.5em;
+}
+
+.subscribe #emailSub {
+    padding: 10px;
+    border: none;
+    background-color: white;
+}
+
+.subscribe #submitSub {
+    padding: 10px;
+    border: none;
+    background-color: #FDD261;
+    color: black;
+}
+
+.navbar ul li .loggedin a {
+    color: black;
+    text-decoration: none;
+    background-color: white;
+}
