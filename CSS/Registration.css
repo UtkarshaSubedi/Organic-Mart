@@ -1,0 +1,52 @@
+.forms {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 187px;
+}
+
+.forms #username,
+#shopName,
+#password,
+#datetime {
+    border: none;
+    padding: 10px;
+    width: 498px;
+    background-color: rgb(217, 230, 219);
+}
+
+.forms #shopName {
+    display: none;
+}
+
+form #Login,
+#signup {
+    padding: 10px;
+    width: 87px;
+    border: none;
+    background-color: #2A9D74;
+    color: white;
+}
+
+.loginform {
+    width: 50%;
+    margin: auto auto;
+}
+
+.signup {
+    width: 50%;
+    margin: auto auto;
+}
+
+.vl {
+    border-left: 1px solid black;
+    height: 500px;
+    margin: 10px;
+}
+
+#users {
+    padding: 10px;
+    border: none;
+    background-color: rgb(217, 230, 219);
+}

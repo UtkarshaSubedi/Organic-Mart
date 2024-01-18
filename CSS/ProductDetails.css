@@ -1,0 +1,163 @@
+.singleProduct {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 187px;
+}
+
+.singleProduct .single {
+    width: 50%;
+}
+
+.single .namePrice {
+    display: flex;
+    justify-content: space-between;
+}
+
+.single .quantityRating {
+    display: flex;
+    justify-content: space-between;
+}
+
+.single .des {
+    font-size: 34px;
+}
+
+.single p {
+    line-height: 202%;
+}
+
+.single .cart {
+    width: 157px;
+    padding: 10px;
+    border: none;
+    background-color: #2A9D74;
+    color: white;
+}
+
+.rating {
+    position: absolute;
+    left: 85%;
+    top: 65%;
+    direction: rtl;
+    display: flex;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label::before {
+    position: absolute;
+    content: '\2605';
+    font-size: 2em;
+    color: #e6e6e6;
+    z-index: -1;
+}
+
+.rating label {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+}
+
+.rating label:after {
+    content: '\2605';
+    font-size: 2em;
+    color: #FDD261;
+    opacity: 0;
+}
+
+.rating label:hover::after,
+.rating label:hover~label::after,
+.rating input:checked~label::after {
+    opacity: 1;
+}
+
+.rating {
+    pointer-events: none !important;
+}
+
+.reviews {
+    max-width: 60%;
+    margin-top: 100px;
+    margin: auto auto;
+}
+
+.reviews form {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews form #review {
+    padding: 10px;
+    width: 50%;
+    background-color: #2A9D74;
+    color: white;
+    margin-top: 5px;
+}
+
+.ratings {
+    direction: rtl;
+    display: flex;
+}
+
+.ratings input {
+    display: none;
+}
+
+.ratings label::before {
+    position: absolute;
+    content: '\2605';
+    font-size: 2em;
+    color: #e6e6e6;
+    z-index: -1;
+}
+
+.ratings label {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+}
+
+.ratings label:after {
+    content: '\2605';
+    font-size: 2em;
+    color: #FDD261;
+    opacity: 0;
+}
+
+.ratings label:hover::after,
+.ratings label:hover~label::after,
+.ratings input:checked~label::after {
+    opacity: 1;
+}
+
+.r1 label::before {
+    position: absolute;
+    content: '\2605';
+    font-size: 2em;
+    color: #e6e6e6;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.r1 label {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+}
+
+.r1 label:after {
+    content: '\2605';
+    font-size: 2em;
+    color: #FDD261;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.r1 label:hover::after,
+.r1 label:hover~label::after,
+.r1 input:checked~label::after {
+    opacity: 1;
+    pointer-events: none;
+}

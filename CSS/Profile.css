@@ -1,0 +1,19 @@
+.profile {
+    width: 50%;
+    margin: auto auto;
+    background-color: #F2F2F2;
+    position: absolute;
+    top: 20%;
+    left: 25%;
+}
+
+.profileInfo {
+    display: flex;
+    width: 60%;
+    margin: auto auto;
+}
+
+.top {
+    width: 60%;
+    margin: auto auto;
+}
