@@ -69,7 +69,7 @@
             $mail->isHTML(true);                                  //Set email format to HTML
             $mail->Subject = 'Email Verification From Organic Mart';
             $mail->Body    = "Thanks for verification. Click the link bleow to verify.
-            <a href='http://localhost/ORGANICMART/verify.php?email=$email&v_code=$v_code'>Verify</a></b>";
+            <a href='http://localhost:8080/ORGANICMART/verify.php?email=$email&v_code=$v_code'>Verify</a></b>";
 
             $mail->send();
             return true;

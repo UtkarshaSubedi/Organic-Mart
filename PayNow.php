@@ -157,11 +157,11 @@ $cart = $_SESSION['cart'];
             // Execute the payment
             onAuthorize: function(data, actions) {
                 return actions.payment.execute().then(function() {
-                    window.location.replace('http://localhost/ORGANICMART/Success.php')
+                    window.location.replace('http://localhost:8080/ORGANICMART/Success.php')
                 });
             },
             onCancel: function(data) {
-                window.location.replace('http://localhost/ORGANICMART/Cancel.php')
+                window.location.replace('http://localhost:8080/ORGANICMART/Cancel.php')
             }
         }, '#signup');
     </script>

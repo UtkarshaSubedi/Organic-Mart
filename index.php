@@ -79,6 +79,7 @@
     <?php 
         include 'footer.php';
     ?>
+
     <script>
         async function showProducts(TRADER_ID) {
             try {
